@@ -7,12 +7,18 @@ public class App {
         char choice;
 
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n" + "0 - Exit");
+        System.out.println("1 - Greet\n" + "2 - Even\n" + "0 - Exit");
         choice = (char) System.in.read();
-        System.out.println("Your choice: " + choice);
+        System.out.println("Your choice: " + choice + "\n");
 
-        if (choice == '1') {
-            Cli.setName();
+
+        switch (choice) {
+            case '1':
+                Cli.setName();
+            case '2':
+                Even.playEven();
         }
+
+
     }
 }
