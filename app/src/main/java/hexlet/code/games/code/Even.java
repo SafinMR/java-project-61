@@ -1,18 +1,14 @@
-package hexlet.code;
+package hexlet.code.games.code;
+
+import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-class Even {
+public class Even {
     public static void playEven() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-
 
         int correctAnswerCount = 0;
         while (correctAnswerCount < 3) {
@@ -36,11 +32,11 @@ class Even {
 
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("Let's try again, " + Engine.userName + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + userName + "!");
+        System.out.println("Congratulations, " + Engine.userName + "!");
         scanner.close();
     }
 }
