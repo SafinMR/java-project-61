@@ -10,65 +10,36 @@ public class Calc {
 
         System.out.println("What is the result of the expression?");
 
-
-        int result;
+        int correctAnswer = 0;
         int correctAnswerCount = 0;
 
         while (correctAnswerCount < 3) {
-            int randomNum1;
-            int randomNum2;
+            int randomNum1 = (int) (Math.random() * 100);
+            int randomNum2 = (int) (Math.random() * 10);
             int answer;
-
             int randomSing = new Random().nextInt(3);
+            String sing = null;
 
-            switch (randomSing) {
-                case 0:
-                    randomNum1 = (int) (Math.random() * 100);
-                    randomNum2 = (int) (Math.random() * 10);
-                    System.out.println("Question: " + randomNum1 + " * " + randomNum2);
-                    result = randomNum1 * randomNum2;
-                    System.out.print("Answer:  ");
-                    answer = scanner.nextInt();
-                    if (answer == result) {
-                        System.out.println("Correct!");
-                        correctAnswerCount++;
-                    } else {
-                        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
-                        System.out.println("Let's try again, " + Engine.userName + "!");
-                        return;
-                    }
-                case 1:
-                    randomNum1 = (int) (Math.random() * 100);
-                    randomNum2 = (int) (Math.random() * 10);
-                    System.out.println("Question: " + randomNum1 + " * " + randomNum2);
-                    result = randomNum1 * randomNum2;
-                    System.out.print("Answer:  ");
-                    answer = scanner.nextInt();
-                    if (answer == result) {
-                        System.out.println("Correct!");
-                        correctAnswerCount++;
-                    } else {
-                        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
-                        System.out.println("Let's try again, " + Engine.userName + "!");
-                        return;
-                    }
-                case 2:
-                    randomNum1 = (int) (Math.random() * 100);
-                    randomNum2 = (int) (Math.random() * 10);
-                    System.out.println("Question: " + randomNum1 + " * " + randomNum2);
-                    result = randomNum1 * randomNum2;
-                    System.out.print("Answer:  ");
-                    answer = scanner.nextInt();
-                    if (answer == result) {
-                        System.out.println("Correct!");
-                        correctAnswerCount++;
-                    } else {
-                        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + result + "'.");
-                        System.out.println("Let's try again, " + Engine.userName + "!");
-                        return;
-                    }
-                default:
-                    break;
+            if (randomSing == 0) {
+                sing = "*";
+                correctAnswer = randomNum1 * randomNum2;
+            }
+            if (randomSing == 1) {
+                sing = "-";
+                correctAnswer = randomNum1 - randomNum2;
+            }
+            if (randomSing == 2) {
+                sing = "+";
+                correctAnswer = randomNum1 + randomNum2;
+            }
+
+            System.out.println("Question: " + randomNum1 + " " + sing + " " + randomNum2);
+            System.out.print("Your answer:  ");
+            answer = scanner.nextInt();
+            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
+                correctAnswerCount++;
+            } else {
+                return;
             }
         }
         System.out.println("Congratulations, " + Engine.userName + "!");
