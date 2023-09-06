@@ -13,6 +13,8 @@ public class Engine {
         System.out.print("May I have your name? ");
         userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
+
+        scanner.close();
     }
 
     public static boolean correctAnswerCheck(int answer, int correctAnswer) {
@@ -27,6 +29,7 @@ public class Engine {
         }
         return a;
     }
+
     public static boolean correctAnswerCheck(String answer, String correctAnswer) {
         boolean a;
         if (answer.equals(correctAnswer)) {

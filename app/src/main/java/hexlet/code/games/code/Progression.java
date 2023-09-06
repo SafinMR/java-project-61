@@ -29,7 +29,7 @@ public class Progression {
                 System.out.print(progression[i] + " ");
             }
             System.out.println();
-            System.out.print("Answer:  ");
+            System.out.print("Your answer: ");
             String answer = scanner.next();
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {

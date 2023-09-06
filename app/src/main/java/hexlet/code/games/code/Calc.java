@@ -14,8 +14,8 @@ public class Calc {
         int correctAnswerCount = 0;
 
         while (correctAnswerCount < 3) {
-            int randomNum1 = (int) (Math.random() * 100);
-            int randomNum2 = (int) (Math.random() * 10);
+            int randomNum1 = new Random().nextInt(100);
+            int randomNum2 = new Random().nextInt(10);
             int answer;
             int randomSing = new Random().nextInt(3);
             String sing = null;
@@ -34,7 +34,7 @@ public class Calc {
             }
 
             System.out.println("Question: " + randomNum1 + " " + sing + " " + randomNum2);
-            System.out.print("Your answer:  ");
+            System.out.print("Your answer: ");
             answer = scanner.nextInt();
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
                 correctAnswerCount++;

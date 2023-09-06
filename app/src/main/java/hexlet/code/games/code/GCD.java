@@ -1,6 +1,8 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
@@ -47,13 +49,13 @@ public class GCD {
 
         while (correctAnswerCount < 3) {
             int correctAnswer;
-            int randomNum1 = (int) (Math.random() * 100);
-            int randomNum2 = (int) (Math.random() * 10);
+            int randomNum1 = new Random().nextInt(100);
+            int randomNum2 = new Random().nextInt(10);
 
             correctAnswer = getGCD(randomNum1, randomNum2);
 
             System.out.println("Question: " + randomNum1 + " " + randomNum2);
-            System.out.print("Answer:  ");
+            System.out.print("Your answer: ");
             int answer = scanner.nextInt();
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
