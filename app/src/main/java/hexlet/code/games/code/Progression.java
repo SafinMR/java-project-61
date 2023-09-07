@@ -16,7 +16,7 @@ public class Progression {
             int firstNum = new Random().nextInt(100);
             int diff = new Random().nextInt(20);
 
-            for (int i = 0; i < length; i ++) {
+            for (int i = 0; i < length; i++) {
                 progression[i] = String.valueOf(firstNum + i * diff);
             }
 
