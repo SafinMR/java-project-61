@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static String userName;
+    private static String userName;
 
     public static void greeting() {
         Scanner scanner = new Scanner(System.in);
@@ -13,6 +13,10 @@ public class Engine {
         System.out.print("May I have your name? ");
         userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
+    }
+
+    public static String getUserName() {
+        return userName;
     }
 
     public static boolean correctAnswerCheck(int answer, int correctAnswer) {

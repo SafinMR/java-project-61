@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class GCD {
     static int getGCD() {
-        int randomNum1 = new Random().nextInt(100);
-        int randomNum2 = new Random().nextInt(10);
+        int bound1 = 100;
+        int bound2 = 10;
+        int randomNum1 = new Random().nextInt(bound1);
+        int randomNum2 = new Random().nextInt(bound2);
         int answer = 1;
         for (int i = 1; i <= randomNum1 && i <= randomNum2; i++) {
             if (randomNum1 % i == 0 && randomNum2 % i == 0) {
@@ -39,7 +41,7 @@ public class GCD {
                 return;
             }
         }
-        System.out.println("Congratulations, " + Engine.userName + "!");
+        System.out.println("Congratulations, " + Engine.getUserName() + "!");
         scanner.close();
     }
 }

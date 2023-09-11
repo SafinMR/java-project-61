@@ -48,7 +48,7 @@ public class Prime {
                 return;
             }
         }
-        System.out.println("Congratulations, " + Engine.userName + "!");
+        System.out.println("Congratulations, " + Engine.getUserName() + "!");
         scanner.close();
     }
 }

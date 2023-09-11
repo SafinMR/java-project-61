@@ -8,9 +8,12 @@ import java.util.Random;
 public class Calc {
     static int getExpression() {
         String sign;
-        int randomNum1 = new Random().nextInt(100);
-        int randomNum2 = new Random().nextInt(10);
-        int randomSign = new Random().nextInt(3);
+        int bound1 = 100;
+        int bound2 = 10;
+        int signNum = 3;
+        int randomNum1 = new Random().nextInt(bound1);
+        int randomNum2 = new Random().nextInt(bound2);
+        int randomSign = new Random().nextInt(signNum);
         int correctAnswer = 0;
 
         if (randomSign == 0) {
@@ -51,7 +54,7 @@ public class Calc {
                 return;
             }
         }
-        System.out.println("Congratulations, " + Engine.userName + "!");
+        System.out.println("Congratulations, " + Engine.getUserName() + "!");
         scanner.close();
     }
 }

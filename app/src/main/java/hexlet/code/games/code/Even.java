@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class Even {
     static String getNumber() {
-        int randomNum = new Random().nextInt(100);
+        int max = 100;
+        int randomNum = new Random().nextInt(max);
         boolean check = randomNum % 2 == 0;
         System.out.println("Question: " + randomNum);
         System.out.print("Your answer: ");
@@ -35,7 +36,7 @@ public class Even {
                 return;
             }
         }
-        System.out.println("Congratulations, " + Engine.userName + "!");
+        System.out.println("Congratulations, " + Engine.getUserName() + "!");
         scanner.close();
     }
 }

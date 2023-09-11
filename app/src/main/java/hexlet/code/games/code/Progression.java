@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class Progression {
     static String[] getArray(int length) {
-        int firstNum = new Random().nextInt(100);
-        int diff = new Random().nextInt(20);
+        int bound1 = 100;
+        int bound2 = 20;
+        int firstNum = new Random().nextInt(bound1);
+        int diff = new Random().nextInt(bound2);
 
         String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
@@ -23,10 +25,13 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
         int correctAnswerCount = 0;
         while (correctAnswerCount < 3) {
-            int length = new Random().nextInt(5) + 5;
+            int min = 5;
+            int max = 5;
+            int length = new Random().nextInt(min) + max;
             String[] progression = getArray(length);
 
-            int misNum = new Random().nextInt(length - 1);
+            int bound = length - 1;
+            int misNum = new Random().nextInt(bound);
             String correctAnswer = progression[misNum];
             progression[misNum] = "..";
 
@@ -44,7 +49,7 @@ public class Progression {
                 return;
             }
         }
-        System.out.println("Congratulations, " + Engine.userName + "!");
+        System.out.println("Congratulations, " + Engine.getUserName() + "!");
         scanner.close();
     }
 }
