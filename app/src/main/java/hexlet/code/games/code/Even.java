@@ -27,13 +27,9 @@ public class Even {
             System.out.print("Your answer: ");
             String answer = scanner.next();
 
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
+            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
                 correctAnswerCount++;
-
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + Engine.userName + "!");
                 return;
             }
         }

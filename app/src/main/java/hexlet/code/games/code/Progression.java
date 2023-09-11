@@ -1,10 +1,22 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
+    static String[] getArray(int length) {
+        int firstNum = new Random().nextInt(100);
+        int diff = new Random().nextInt(20);
+
+        String[] progression = new String[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = String.valueOf(firstNum + i * diff);
+        }
+        return progression;
+    }
+
     public static void playProgression() {
         Scanner scanner = new Scanner(System.in);
 
@@ -12,13 +24,7 @@ public class Progression {
         int correctAnswerCount = 0;
         while (correctAnswerCount < 3) {
             int length = new Random().nextInt(5) + 5;
-            String[] progression = new String[length];
-            int firstNum = new Random().nextInt(100);
-            int diff = new Random().nextInt(20);
-
-            for (int i = 0; i < length; i++) {
-                progression[i] = String.valueOf(firstNum + i * diff);
-            }
+            String[] progression = getArray(length);
 
             int misNum = new Random().nextInt(length - 1);
             String correctAnswer = progression[misNum];

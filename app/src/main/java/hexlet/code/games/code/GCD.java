@@ -60,7 +60,6 @@ public class GCD {
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
                 correctAnswerCount++;
-
             } else {
                 return;
             }

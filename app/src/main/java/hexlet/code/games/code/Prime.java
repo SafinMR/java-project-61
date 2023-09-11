@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Prime {
-    public static boolean isSimple(int number) {
+    static boolean isPrime(int number) {
         if (number < 2) {
             return false;
         }
@@ -26,7 +26,7 @@ public class Prime {
 
         while (correctAnswerCount < 3) {
             int randomNum = new Random().nextInt(100);
-            boolean check = isSimple(randomNum);
+            boolean check = isPrime(randomNum);
             String correctAnswer;
 
             if (check) {
