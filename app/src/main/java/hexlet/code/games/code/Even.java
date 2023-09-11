@@ -6,6 +6,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
+    static String getNumber() {
+        int randomNum = new Random().nextInt(100);
+        boolean check = randomNum % 2 == 0;
+        System.out.println("Question: " + randomNum);
+        System.out.print("Your answer: ");
+
+        if (check) {
+            return "yes";
+        } else {
+            return "no";
+        }
+    }
     public static void playEven() {
         Scanner scanner = new Scanner(System.in);
 
@@ -13,18 +25,8 @@ public class Even {
 
         int correctAnswerCount = 0;
         while (correctAnswerCount < 3) {
-            int randomNum = new Random().nextInt(100);
-            boolean check = randomNum % 2 == 0;
-            String correctAnswer;
+            String correctAnswer = getNumber();
 
-            if (check) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
-
-            System.out.println("Question: " + randomNum);
-            System.out.print("Your answer: ");
             String answer = scanner.next();
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {

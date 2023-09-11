@@ -18,6 +18,19 @@ public class Prime {
         return true;
     }
 
+    static String getNumber() {
+        int randomNum = new Random().nextInt(100);
+        boolean check = isPrime(randomNum);
+        System.out.println("Question: " + randomNum);
+        System.out.print("Your answer: ");
+
+        if (check) {
+            return "yes";
+        } else {
+            return "no";
+        }
+    }
+
     public static void playPrime() {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,18 +38,8 @@ public class Prime {
         int correctAnswerCount = 0;
 
         while (correctAnswerCount < 3) {
-            int randomNum = new Random().nextInt(100);
-            boolean check = isPrime(randomNum);
-            String correctAnswer;
+            String correctAnswer = getNumber();
 
-            if (check) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
-
-            System.out.println("Question: " + randomNum);
-            System.out.print("Your answer: ");
             String answer = scanner.next();
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {

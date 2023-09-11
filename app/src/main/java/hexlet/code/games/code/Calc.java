@@ -6,20 +6,24 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Calc {
-    static int operatorSelection(int randomSing, int randomNum1, int randomNum2) {
+    static int getExpression() {
         String sign;
+        int randomNum1 = new Random().nextInt(100);
+        int randomNum2 = new Random().nextInt(10);
+        int randomSign = new Random().nextInt(3);
         int correctAnswer = 0;
-        if (randomSing == 0) {
+
+        if (randomSign == 0) {
             sign = "*";
             correctAnswer = randomNum1 * randomNum2;
             System.out.println("Question: " + randomNum1 + " " + sign + " " + randomNum2);
         }
-        if (randomSing == 1) {
+        if (randomSign == 1) {
             sign = "-";
             correctAnswer = randomNum1 - randomNum2;
             System.out.println("Question: " + randomNum1 + " " + sign + " " + randomNum2);
         }
-        if (randomSing == 2) {
+        if (randomSign == 2) {
             sign = "+";
             correctAnswer = randomNum1 + randomNum2;
             System.out.println("Question: " + randomNum1 + " " + sign + " " + randomNum2);
@@ -33,19 +37,16 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int correctAnswer;
-        int correctAnswerCount = 0;
+        int expressionNumber = 0;
 
-        while (correctAnswerCount < 3) {
-            int randomNum1 = new Random().nextInt(100);
-            int randomNum2 = new Random().nextInt(10);
+        while (expressionNumber < 3) {
             int answer;
-            int randomSing = new Random().nextInt(3);
 
-            correctAnswer = operatorSelection(randomSing, randomNum1, randomNum2);
+            correctAnswer = getExpression();
             System.out.print("Your answer: ");
             answer = scanner.nextInt();
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                correctAnswerCount++;
+                expressionNumber++;
             } else {
                 return;
             }

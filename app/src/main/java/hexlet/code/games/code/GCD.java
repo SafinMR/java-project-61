@@ -6,38 +6,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
-    static int getGCD(int n1, int n2) {
-        if (n1 == 0) {
-            return n2;
-        }
-
-        if (n2 == 0) {
-            return n1;
-        }
-
-        int n;
-        for (n = 0; ((n1 | n2) & 1) == 0; n++) {
-            n1 >>= 1;
-            n2 >>= 1;
-        }
-
-        while ((n1 & 1) == 0) {
-            n1 >>= 1;
-        }
-
-        do {
-            while ((n2 & 1) == 0) {
-                n2 >>= 1;
+    static int getGCD() {
+        int randomNum1 = new Random().nextInt(100);
+        int randomNum2 = new Random().nextInt(10);
+        int answer = 1;
+        for (int i = 1; i <= randomNum1 && i <= randomNum2; i++) {
+            if (randomNum1 % i == 0 && randomNum2 % i == 0) {
+                answer = i;
             }
+        }
 
-            if (n1 > n2) {
-                int temp = n1;
-                n1 = n2;
-                n2 = temp;
-            }
-            n2 = (n2 - n1);
-        } while (n2 != 0);
-        return n1 << n;
+        System.out.println("Question: " + randomNum1 + " " + randomNum2);
+        return answer;
     }
 
     public static void playGCD() {
@@ -49,12 +29,7 @@ public class GCD {
 
         while (correctAnswerCount < 3) {
             int correctAnswer;
-            int randomNum1 = new Random().nextInt(100);
-            int randomNum2 = new Random().nextInt(10);
-
-            correctAnswer = getGCD(randomNum1, randomNum2);
-
-            System.out.println("Question: " + randomNum1 + " " + randomNum2);
+            correctAnswer = getGCD();
             System.out.print("Your answer: ");
             int answer = scanner.nextInt();
 
