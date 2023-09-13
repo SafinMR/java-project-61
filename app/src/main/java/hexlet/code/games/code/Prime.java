@@ -19,7 +19,8 @@ public class Prime {
     }
 
     static String getNumber() {
-        int randomNum = new Random().nextInt(100);
+        final int bound = 100;
+        int randomNum = new Random().nextInt(bound);
         boolean check = isPrime(randomNum);
         System.out.println("Question: " + randomNum);
         System.out.print("Your answer: ");

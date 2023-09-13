@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Even {
     static String getNumber() {
-        int max = 100;
-        int randomNum = new Random().nextInt(max);
+        final int bound = 100;
+        int randomNum = new Random().nextInt(bound);
         boolean check = randomNum % 2 == 0;
         System.out.println("Question: " + randomNum);
         System.out.print("Your answer: ");

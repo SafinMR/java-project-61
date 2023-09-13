@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class GCD {
     static int getGCD() {
-        int bound1 = 100;
-        int bound2 = 10;
+        final int bound1 = 100;
+        final int bound2 = 10;
         int randomNum1 = new Random().nextInt(bound1);
         int randomNum2 = new Random().nextInt(bound2);
         int answer = 1;
