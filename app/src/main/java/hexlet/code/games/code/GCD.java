@@ -12,6 +12,14 @@ public class GCD {
         int randomNum1 = new Random().nextInt(bound1);
         int randomNum2 = new Random().nextInt(bound2);
         int answer = 1;
+        if (randomNum1 == 0) {
+            answer = randomNum2;
+            return answer;
+        }
+        if (randomNum2 == 0) {
+            answer = randomNum1;
+            return answer;
+        }
         for (int i = 1; i <= randomNum1 && i <= randomNum2; i++) {
             if (randomNum1 % i == 0 && randomNum2 % i == 0) {
                 answer = i;
