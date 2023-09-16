@@ -40,16 +40,16 @@ public class Calc {
         System.out.println("What is the result of the expression?");
 
         int correctAnswer;
-        int expressionNumber = 0;
+        int correctAnswerCount = 0;
 
-        while (expressionNumber < 3) {
+        while (correctAnswerCount < 3) {
             int answer;
 
             correctAnswer = getExpression();
             System.out.print("Your answer: ");
             answer = scanner.nextInt();
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                expressionNumber++;
+                correctAnswerCount++;
             } else {
                 return;
             }
