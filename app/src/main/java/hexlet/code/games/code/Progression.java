@@ -39,7 +39,8 @@ public class Progression {
 
         System.out.println("What number is missing in the progression?");
         int correctAnswerCount = 0;
-        while (correctAnswerCount < 3) {
+        final int correctAnswerLimit = 3;
+        while (correctAnswerCount < correctAnswerLimit) {
             String correctAnswer = getArray();
 
             System.out.print("Your answer: ");

@@ -20,7 +20,8 @@ public class GCD {
             answer = randomNum1;
             return answer;
         }
-        for (int i = 1; i <= randomNum1 && i <= randomNum2; i++) {
+        int a = Math.max(randomNum1, randomNum2);
+        for (int i = 1; i <= a; i++) {
             if (randomNum1 % i == 0 && randomNum2 % i == 0) {
                 answer = i;
             }
@@ -36,8 +37,8 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int correctAnswerCount = 0;
-
-        while (correctAnswerCount < 3) {
+        final int correctAnswerLimit = 3;
+        while (correctAnswerCount < correctAnswerLimit) {
             int correctAnswer;
             correctAnswer = getGCD();
             System.out.print("Your answer: ");

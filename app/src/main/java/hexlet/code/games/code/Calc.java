@@ -42,7 +42,8 @@ public class Calc {
         int correctAnswer;
         int correctAnswerCount = 0;
 
-        while (correctAnswerCount < 3) {
+        final int correctAnswerLimit = 3;
+        while (correctAnswerCount < correctAnswerLimit) {
             int answer;
 
             correctAnswer = getExpression();

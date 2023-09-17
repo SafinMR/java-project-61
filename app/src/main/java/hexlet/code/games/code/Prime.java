@@ -37,8 +37,8 @@ public class Prime {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int correctAnswerCount = 0;
-
-        while (correctAnswerCount < 3) {
+        final int correctAnswerLimit = 3;
+        while (correctAnswerCount < correctAnswerLimit) {
             String correctAnswer = getNumber();
 
             String answer = scanner.next();

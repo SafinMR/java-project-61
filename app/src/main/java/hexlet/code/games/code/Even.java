@@ -25,7 +25,8 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int correctAnswerCount = 0;
-        while (correctAnswerCount < 3) {
+        final int correctAnswerLimit = 3;
+        while (correctAnswerCount < correctAnswerLimit) {
             String correctAnswer = getNumber();
 
             String answer = scanner.next();
