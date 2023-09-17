@@ -22,7 +22,9 @@ public class GCD {
         }
         int a = Math.max(randomNum1, randomNum2);
         for (int i = 1; i <= a; i++) {
-            if (randomNum1 % i == 0 && randomNum2 % i == 0) {
+            boolean n1 = randomNum1 % i == 0;
+            boolean n2 = randomNum2 % i == 0;
+            if (n1 && n2) {
                 answer = i;
             }
         }
