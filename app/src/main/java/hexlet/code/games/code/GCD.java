@@ -24,10 +24,9 @@ public class GCD {
         for (int i = 1; i <= a; i++) {
             boolean n1 = randomNum1 % i == 0;
             boolean n2 = randomNum2 % i == 0;
-            if (n1) {
-                if (n2) {
-                    answer = i;
-                }
+            boolean n = n1 & n2;
+            if (n) {
+                answer = i;
             }
         }
 
