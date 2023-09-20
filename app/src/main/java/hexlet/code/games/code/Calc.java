@@ -39,16 +39,16 @@ public class Calc {
 
         System.out.println("What is the result of the expression?");
 
-        int correctAnswer;
+        String correctAnswer;
         int correctAnswerCount = 0;
 
         final int correctAnswerLimit = 3;
         while (correctAnswerCount < correctAnswerLimit) {
-            int answer;
+            String answer;
 
-            correctAnswer = getExpression();
+            correctAnswer = String.valueOf(getExpression());
             System.out.print("Your answer: ");
-            answer = scanner.nextInt();
+            answer = scanner.next();
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
                 correctAnswerCount++;
             } else {

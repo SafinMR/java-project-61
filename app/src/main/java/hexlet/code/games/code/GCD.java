@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCD {
-    static int getGCD() {
+    static String getGCD() {
         final int bound1 = 100;
         final int bound2 = 10;
         int randomNum1 = new Random().nextInt(bound1);
@@ -14,11 +14,11 @@ public class GCD {
         int answer = 1;
         if (randomNum1 == 0) {
             answer = randomNum2;
-            return answer;
+            return String.valueOf(answer);
         }
         if (randomNum2 == 0) {
             answer = randomNum1;
-            return answer;
+            return String.valueOf(answer);
         }
         int a = Math.max(randomNum1, randomNum2);
         for (int i = 1; i <= a; i++) {
@@ -31,7 +31,7 @@ public class GCD {
         }
 
         System.out.println("Question: " + randomNum1 + " " + randomNum2);
-        return answer;
+        return String.valueOf(answer);
     }
 
     public static void playGCD() {
@@ -42,10 +42,10 @@ public class GCD {
         int correctAnswerCount = 0;
         final int correctAnswerLimit = 3;
         while (correctAnswerCount < correctAnswerLimit) {
-            int correctAnswer;
-            correctAnswer = getGCD();
+            String correctAnswer;
+            correctAnswer = (getGCD());
             System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
+            String answer = scanner.next();
 
             if (Engine.correctAnswerCheck(answer, correctAnswer)) {
                 correctAnswerCount++;

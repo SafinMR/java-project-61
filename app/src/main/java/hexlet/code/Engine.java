@@ -19,19 +19,6 @@ public class Engine {
         return userName;
     }
 
-    public static boolean correctAnswerCheck(int answer, int correctAnswer) {
-        boolean a;
-        if (answer == correctAnswer) {
-            System.out.println("Correct!");
-            a = true;
-        } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            System.out.println("Let's try again, " + userName + "!");
-            a = false;
-        }
-        return a;
-    }
-
     public static boolean correctAnswerCheck(String answer, String correctAnswer) {
         boolean a;
         if (answer.equals(correctAnswer)) {
