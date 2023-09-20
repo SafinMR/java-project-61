@@ -24,7 +24,7 @@ public class Engine {
             System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         }
         if (game.equals("prime")) {
-            System.out.println("Answer 'yes' if the number is prime. Otherwise answer 'no'.");
+            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'");
         }
     }
 
