@@ -20,7 +20,12 @@ public class Engine {
     }
 
     public static void description(String game) {
-        System.out.println("Answer 'yes' if the number is " + game + ", otherwise answer 'no'.");
+        if (game.equals("even")) {
+            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        }
+        if (game.equals("prime")) {
+            System.out.println("Answer 'yes' if the number is prime. Otherwise answer 'no'.");
+        }
     }
 
     public static boolean correctAnswerCheck(String answer, String correctAnswer) {

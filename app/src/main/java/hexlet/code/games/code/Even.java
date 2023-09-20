@@ -21,9 +21,7 @@ public class Even {
     }
     public static void playEven() {
         Scanner scanner = new Scanner(System.in);
-        String game = "even";
-
-        Engine.description(game);
+        Engine.description("even");
 
         int correctAnswerCount = 0;
         final int correctAnswerLimit = 3;

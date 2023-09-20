@@ -34,9 +34,8 @@ public class Prime {
 
     public static void playPrime() {
         Scanner scanner = new Scanner(System.in);
-        String game = "prime";
 
-        Engine.description(game);
+        Engine.description("prime");
 
         int correctAnswerCount = 0;
         final int correctAnswerLimit = 3;
