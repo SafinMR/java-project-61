@@ -19,6 +19,10 @@ public class Engine {
         return userName;
     }
 
+    public static void description(String game) {
+        System.out.println("Answer 'yes' if the number is " + game + ", otherwise answer 'no'.");
+    }
+
     public static boolean correctAnswerCheck(String answer, String correctAnswer) {
         boolean a;
         if (answer.equals(correctAnswer)) {

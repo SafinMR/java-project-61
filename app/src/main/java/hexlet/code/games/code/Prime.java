@@ -34,8 +34,10 @@ public class Prime {
 
     public static void playPrime() {
         Scanner scanner = new Scanner(System.in);
+        String game = "prime";
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.description(game);
+
         int correctAnswerCount = 0;
         final int correctAnswerLimit = 3;
         while (correctAnswerCount < correctAnswerLimit) {

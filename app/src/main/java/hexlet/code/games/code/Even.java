@@ -21,8 +21,9 @@ public class Even {
     }
     public static void playEven() {
         Scanner scanner = new Scanner(System.in);
+        String game = "even";
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Engine.description(game);
 
         int correctAnswerCount = 0;
         final int correctAnswerLimit = 3;

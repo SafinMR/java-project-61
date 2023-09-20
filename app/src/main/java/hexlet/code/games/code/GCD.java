@@ -43,7 +43,7 @@ public class GCD {
         final int correctAnswerLimit = 3;
         while (correctAnswerCount < correctAnswerLimit) {
             String correctAnswer;
-            correctAnswer = (getGCD());
+            correctAnswer = getGCD();
             System.out.print("Your answer: ");
             String answer = scanner.next();
 
