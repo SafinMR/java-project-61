@@ -20,7 +20,7 @@ public class GCD {
             answer = randomNum1;
             return String.valueOf(answer);
         }
-        int a = Math.max(randomNum1, randomNum2);
+        int a = Math.min(randomNum1, randomNum2);
         for (int i = 1; i <= a; i++) {
             boolean n1 = randomNum1 % i == 0;
             boolean n2 = randomNum2 % i == 0;
