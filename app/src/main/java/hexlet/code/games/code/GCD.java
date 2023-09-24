@@ -5,7 +5,6 @@ import hexlet.code.Util;
 
 public class GCD {
     static String getGCD(int num1, int num2) {
-
         int answer = 1;
         if (num1 == 0) {
             answer = num2;
@@ -29,12 +28,13 @@ public class GCD {
 
     public static void playGCD() {
         String rule = "Find the greatest common divisor of given numbers.";
-        String[] randomNum = new String[3];
-        String[] correctAnswer = new String[3];
+        final int questionNumber = 3;
+        String[] randomNum = new String[questionNumber];
+        String[] correctAnswer = new String[questionNumber];
         final int bound1 = 100;
         final int bound2 = 10;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < questionNumber; i++) {
             int randomNum1 = Util.getRandomNum(bound1);
             int randomNum2 = Util.getRandomNum(bound2);
             randomNum[i] = randomNum1 + " " + randomNum2;

@@ -33,7 +33,7 @@ public class Engine {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer[i] + "'.");
+                System.out.println("'"+answer+"' is wrong answer ;(. Correct answer was '"+correctAnswer[i]+"'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }

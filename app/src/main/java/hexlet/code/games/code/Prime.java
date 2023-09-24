@@ -18,12 +18,13 @@ public class Prime {
 
     public static void playPrime() {
         String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        final int questionNumber = 3;
         final int bound = 100;
 
-        String[] randomNum = new String[3];
-        String[] correctAnswer = new String[3];
+        String[] randomNum = new String[questionNumber];
+        String[] correctAnswer = new String[questionNumber];
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < questionNumber; i++) {
             randomNum[i] = String.valueOf(Util.getRandomNum(bound));
 
             boolean check = isPrime(Integer.parseInt(randomNum[i]));

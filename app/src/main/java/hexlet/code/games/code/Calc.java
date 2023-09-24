@@ -22,14 +22,15 @@ public class Calc {
 
     public static void playCalc() {
         String rule = "What is the result of the expression?";
+        final int questionNumber = 3;
         final int bound1 = 100;
         final int bound2 = 10;
         final int signNum = 3;
         String[] sign = {"+", "-", "*"};
 
-        String[] correctAnswer = new String[3];
-        String[] expression = new String[3];
-        for (int i = 0; i < 3; i++) {
+        String[] correctAnswer = new String[questionNumber];
+        String[] expression = new String[questionNumber];
+        for (int i = 0; i < questionNumber; i++) {
             int randomNum1 = Util.getRandomNum(bound1);
             int randomNum2 = Util.getRandomNum(bound2);
             int randomSign = Util.getRandomNum(signNum);

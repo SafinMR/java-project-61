@@ -14,13 +14,14 @@ public class Progression {
 
     public static void playProgression() {
         String rule = "What number is missing in the progression?";
+        final int questionNumber = 3;
         final int min = 5;
         final int max = 5;
         final int bound1 = 100;
         final int bound2 = 20;
-        String[] expression = new String[3];
-        String[] correctAnswer = new String[3];
-        for (int i = 0; i < 3; i++) {
+        String[] expression = new String[questionNumber];
+        String[] correctAnswer = new String[questionNumber];
+        for (int i = 0; i < questionNumber; i++) {
             int length = Util.getRandomNum(min) + max;
             int firstNum = Util.getRandomNum(bound1);
             int diff = Util.getRandomNum(bound2);
