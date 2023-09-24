@@ -17,11 +17,12 @@ public class Engine {
 
     public static void play(String rule, String[] expression, String[] correctAnswer) {
         Scanner scanner = new Scanner(System.in);
+        final int questionNumber = 3;
 
         System.out.println(rule);
 
         int i = 0;
-        while (i < 3) {
+        while (i < questionNumber) {
             System.out.println("Question: " + expression[i]);
             System.out.print("Your answer: ");
 
@@ -29,11 +30,12 @@ public class Engine {
 
             answer = scanner.next();
 
-            if (answer.equals(correctAnswer[i])) {
+            String a = correctAnswer[i];
+            if (answer.equals(a)) {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'"+answer+"' is wrong answer ;(. Correct answer was '"+correctAnswer[i]+"'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + a + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }
