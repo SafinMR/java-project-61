@@ -1,42 +1,25 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Util;
 
 public class Even {
-    static String getNumber() {
-        final int bound = 100;
-        int randomNum = new Random().nextInt(bound);
-        boolean check = randomNum % 2 == 0;
-        System.out.println("Question: " + randomNum);
-        System.out.print("Your answer: ");
-
-        if (check) {
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
     public static void playEven() {
-        Scanner scanner = new Scanner(System.in);
-        Engine.description("even");
+        String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        final int bound = 100;
+        String[] randomNum = new String[3];
+        String[] correctAnswer = new String[3];
 
-        int correctAnswerCount = 0;
-        final int correctAnswerLimit = 3;
-        while (correctAnswerCount < correctAnswerLimit) {
-            String correctAnswer = getNumber();
 
-            String answer = scanner.next();
-
-            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                correctAnswerCount++;
+        for (int i = 0; i < 3; i++) {
+            randomNum[i] = String.valueOf(Util.getRandomNum(bound));
+            boolean check = Integer.parseInt(randomNum[i]) % 2 == 0;
+            if (check) {
+                correctAnswer[i] = "yes";
             } else {
-                return;
+                correctAnswer[i] = "no";
             }
         }
-        System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        scanner.close();
+        Engine.play(rule, randomNum, correctAnswer);
     }
 }

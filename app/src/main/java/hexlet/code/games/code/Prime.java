@@ -1,9 +1,7 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Util;
 
 public class Prime {
     static boolean isPrime(int number) {
@@ -18,39 +16,23 @@ public class Prime {
         return true;
     }
 
-    static String getNumber() {
-        final int bound = 100;
-        int randomNum = new Random().nextInt(bound);
-        boolean check = isPrime(randomNum);
-        System.out.println("Question: " + randomNum);
-        System.out.print("Your answer: ");
-
-        if (check) {
-            return "yes";
-        } else {
-            return "no";
-        }
-    }
-
     public static void playPrime() {
-        Scanner scanner = new Scanner(System.in);
+        String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        final int bound = 100;
 
-        Engine.description("prime");
+        String[] randomNum = new String[3];
+        String[] correctAnswer = new String[3];
 
-        int correctAnswerCount = 0;
-        final int correctAnswerLimit = 3;
-        while (correctAnswerCount < correctAnswerLimit) {
-            String correctAnswer = getNumber();
+        for (int i = 0; i < 3; i++) {
+            randomNum[i] = String.valueOf(Util.getRandomNum(bound));
 
-            String answer = scanner.next();
-
-            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                correctAnswerCount++;
+            boolean check = isPrime(Integer.parseInt(randomNum[i]));
+            if (check) {
+                correctAnswer[i] = "yes";
             } else {
-                return;
+                correctAnswer[i] = "no";
             }
         }
-        System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        scanner.close();
+        Engine.play(rule, randomNum, correctAnswer);
     }
 }

@@ -15,29 +15,30 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static String getUserName() {
-        return userName;
-    }
+    public static void play(String rule, String[] expression, String[] correctAnswer) {
+        Scanner scanner = new Scanner(System.in);
 
-    public static void description(String game) {
-        if (game.equals("even")) {
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        }
-        if (game.equals("prime")) {
-            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        }
-    }
+        System.out.println(rule);
 
-    public static boolean correctAnswerCheck(String answer, String correctAnswer) {
-        boolean a;
-        if (answer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-            a = true;
-        } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            System.out.println("Let's try again, " + userName + "!");
-            a = false;
+        int i = 0;
+        while (i < 3) {
+            System.out.println("Question: " + expression[i]);
+            System.out.print("Your answer: ");
+
+            String answer;
+
+            answer = scanner.next();
+
+            if (answer.equals(correctAnswer[i])) {
+                System.out.println("Correct!");
+                i++;
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer[i] + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                return;
+            }
         }
-        return a;
+        System.out.println("Congratulations, " + userName + "!");
+        scanner.close();
     }
 }

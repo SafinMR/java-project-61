@@ -1,16 +1,13 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
-
-import java.util.Scanner;
-import java.util.Random;
+import hexlet.code.Util;
 
 public class Calc {
     static int solution(int randomSign, int num1, int num2) {
-        String[] sign = {"+", "-", "*"};
+
         int a = 0;
 
-        System.out.println("Question: " + num1 + " " + sign[randomSign] + " " + num2);
         if (randomSign == 0) {
             a = num1 + num2;
         }
@@ -22,42 +19,24 @@ public class Calc {
         }
         return a;
     }
-    static int getExpression() {
+
+    public static void playCalc() {
+        String rule = "What is the result of the expression?";
         final int bound1 = 100;
         final int bound2 = 10;
         final int signNum = 3;
-        int randomNum1 = new Random().nextInt(bound1);
-        int randomNum2 = new Random().nextInt(bound2);
-        int randomSign = new Random().nextInt(signNum);
-        int correctAnswer;
+        String[] sign = {"+", "-", "*"};
 
-        correctAnswer = solution(randomSign, randomNum1, randomNum2);
+        String[] correctAnswer = new String[3];
+        String[] expression = new String[3];
+        for (int i = 0; i < 3; i++) {
+            int randomNum1 = Util.getRandomNum(bound1);
+            int randomNum2 = Util.getRandomNum(bound2);
+            int randomSign = Util.getRandomNum(signNum);
 
-        return correctAnswer;
-    }
-
-    public static void playCalc() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("What is the result of the expression?");
-
-        String correctAnswer;
-        int correctAnswerCount = 0;
-
-        final int correctAnswerLimit = 3;
-        while (correctAnswerCount < correctAnswerLimit) {
-            String answer;
-
-            correctAnswer = String.valueOf(getExpression());
-            System.out.print("Your answer: ");
-            answer = scanner.next();
-            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                correctAnswerCount++;
-            } else {
-                return;
-            }
+            correctAnswer[i] = String.valueOf(solution(randomSign, randomNum1, randomNum2));
+            expression[i] = randomNum1 + " " + sign[randomSign] + " " + randomNum2;
         }
-        System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        scanner.close();
+        Engine.play(rule, expression, correctAnswer);
     }
 }

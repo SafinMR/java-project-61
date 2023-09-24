@@ -1,58 +1,41 @@
 package hexlet.code.games.code;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
-import java.util.Scanner;
+import hexlet.code.Util;
 
 public class Progression {
-    static String getArray() {
-        final int min = 5;
-        final int max = 5;
-        int length = new Random().nextInt(min) + max;
-
-        final int bound1 = 100;
-        final int bound2 = 20;
-        int firstNum = new Random().nextInt(bound1);
-        int diff = new Random().nextInt(bound2);
-
-        String[] progression = new String[length];
-        for (int i = 0; i < length; i++) {
-            progression[i] = String.valueOf(firstNum + i * diff);
+    static String getExpression(String[] progression) {
+        StringBuilder array = new StringBuilder();
+        for (String s : progression) {
+            array.append(s).append(" ");
         }
-        int bound = length - 1;
-        int missNum = new Random().nextInt(bound);
-        String correctAnswer = progression[missNum];
-        progression[missNum] = "..";
-
-        System.out.print("Question: ");
-        for (int i = 0; i < length; i++) {
-            System.out.print(progression[i] + " ");
-        }
-        System.out.println();
-
-        return correctAnswer;
+        return String.valueOf(array);
     }
 
     public static void playProgression() {
-        Scanner scanner = new Scanner(System.in);
+        String rule = "What number is missing in the progression?";
+        final int min = 5;
+        final int max = 5;
+        final int bound1 = 100;
+        final int bound2 = 20;
+        String[] expression = new String[3];
+        String[] correctAnswer = new String[3];
+        for (int i = 0; i < 3; i++) {
+            int length = Util.getRandomNum(min) + max;
+            int firstNum = Util.getRandomNum(bound1);
+            int diff = Util.getRandomNum(bound2);
+            String[] progression = new String[length];
 
-        System.out.println("What number is missing in the progression?");
-        int correctAnswerCount = 0;
-        final int correctAnswerLimit = 3;
-        while (correctAnswerCount < correctAnswerLimit) {
-            String correctAnswer = getArray();
-
-            System.out.print("Your answer: ");
-            String answer = scanner.next();
-
-            if (Engine.correctAnswerCheck(answer, correctAnswer)) {
-                correctAnswerCount++;
-            } else {
-                return;
+            for (int j = 0; j < length; j++) {
+                progression[j] = String.valueOf(firstNum + j * diff);
             }
+
+            int bound = length - 1;
+            int missNum = Util.getRandomNum(bound);
+            correctAnswer[i] = progression[missNum];
+            progression[missNum] = "..";
+            expression[i] = getExpression(progression);
         }
-        System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        scanner.close();
+        Engine.play(rule, expression, correctAnswer);
     }
 }
