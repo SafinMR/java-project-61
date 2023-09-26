@@ -3,8 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int QUESTION_NUMBER = 3;
-    public static final int PAIR_NUM = 2;
+    public static final int QUESTION_COUNT = 3;
+    public static final int COUPLES_COUNT = 2;
 
     public static void play(String rule, String[][] examplesAndAnswers) {
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         System.out.println(rule);
 
-        for (int i = 0; i < QUESTION_NUMBER; i++) {
+        for (int i = 0; i < QUESTION_COUNT; i++) {
             int j = 0;
             System.out.println("Question: " + examplesAndAnswers[i][j]);
             System.out.print("Your answer: ");

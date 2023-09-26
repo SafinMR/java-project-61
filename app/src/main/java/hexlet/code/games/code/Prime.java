@@ -8,9 +8,9 @@ public class Prime {
 
     public static void playPrime() {
         String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
-        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+        for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             int j = 0;
 
             examplesAndAnswers[i][j] = String.valueOf(Util.getRandomNum(BOUND));

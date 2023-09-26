@@ -8,19 +8,19 @@ public class Even {
 
     public static void playEven() {
         String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
-        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+        for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             int j = 0;
             examplesAndAnswers[i][j] = String.valueOf(Util.getRandomNum(BOUND));
-            String temp = checking(Integer.parseInt(examplesAndAnswers[i][j])) ? "yes" : "no";
+            String temp = isEven(Integer.parseInt(examplesAndAnswers[i][j])) ? "yes" : "no";
             j++;
             examplesAndAnswers[i][j] = temp;
         }
         Engine.play(rule, examplesAndAnswers);
     }
 
-    private static boolean checking(int num) {
+    private static boolean isEven(int num) {
         return num % 2 == 0;
     }
 

@@ -11,9 +11,9 @@ public class Progression {
 
     public static void playProgression() {
         String rule = "What number is missing in the progression?";
-        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
-        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+        for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             String[] progression = getProgression();
 
             int bound = progression.length - 1;

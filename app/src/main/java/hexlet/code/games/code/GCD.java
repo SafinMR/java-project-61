@@ -9,9 +9,9 @@ public class GCD {
 
     public static void playGCD() {
         String rule = "Find the greatest common divisor of given numbers.";
-        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
-        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+        for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             int randomNum1 = Util.getRandomNum(BOUND_1);
             int randomNum2 = Util.getRandomNum(BOUND_2);
             int j = 0;

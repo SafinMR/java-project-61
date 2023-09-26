@@ -8,3 +8,40 @@
 [![asciicast](https://asciinema.org/a/o84MW0l7SFTCl1H38JRlrEwsX.svg)](https://asciinema.org/a/o84MW0l7SFTCl1H38JRlrEwsX)
 [![asciicast](https://asciinema.org/a/ItNvCyP9fzVNkkoyIa62uM9xv.svg)](https://asciinema.org/a/ItNvCyP9fzVNkkoyIa62uM9xv)
 [![asciicast](https://asciinema.org/a/Bh9YisLFjAttbPV15ihRWKpS0.svg)](https://asciinema.org/a/Bh9YisLFjAttbPV15ihRWKpS0)
+
+## Start
+
+```bash
+make
+```
+
+## Setup
+
+```bash
+make build
+```
+
+## Run
+
+```bash
+make run
+```
+
+## Run tests
+
+```bash
+make test
+```
+
+## Run checkstyle
+
+```bash
+make lint
+```
+
+## Check update dependencies and plugins
+
+```bash
+make update
+```
+

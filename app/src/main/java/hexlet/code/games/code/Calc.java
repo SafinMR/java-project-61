@@ -11,9 +11,9 @@ public class Calc {
     public static void playCalc() {
         String rule = "What is the result of the expression?";
         String[] sign = {"+", "-", "*"};
-        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
-        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+        for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             int randomNum1 = Util.getRandomNum(BOUND_1);
             int randomNum2 = Util.getRandomNum(BOUND_2);
             int randomSign = Util.getRandomNum(SIGN_NUM);
@@ -30,9 +30,15 @@ public class Calc {
         int a = 0;
 
         switch (sign) {
-            case "+" -> a = num1 + num2;
-            case "-" -> a = num1 - num2;
-            case "*" -> a = num1 * num2;
+            case "+" -> {
+                a = num1 + num2;
+            }
+            case "-" -> {
+                a = num1 - num2;
+            }
+            case "*" -> {
+                a = num1 * num2;
+            }
             default -> {
             }
         }
