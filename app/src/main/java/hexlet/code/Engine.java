@@ -3,37 +3,32 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int QUESTION_NUMBER = 3;
+    public static final int PAIR_NUM = 2;
 
-    private static String userName;
-
-    public static void greeting() {
+    public static void play(String rule, String[][] examplesAndAnswers) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        userName = scanner.next();
+        String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
-    }
-
-    public static void play(String rule, String[] expression, String[] correctAnswer) {
-        Scanner scanner = new Scanner(System.in);
-        final int questionNumber = 3;
-
         System.out.println(rule);
 
-        int i = 0;
-        while (i < questionNumber) {
-            System.out.println("Question: " + expression[i]);
+        for (int i = 0; i < QUESTION_NUMBER; i++) {
+            int j = 0;
+            System.out.println("Question: " + examplesAndAnswers[i][j]);
             System.out.print("Your answer: ");
 
             String answer;
 
             answer = scanner.next();
 
-            String a = correctAnswer[i];
+            j++;
+            String a = examplesAndAnswers[i][j];
+
             if (answer.equals(a)) {
                 System.out.println("Correct!");
-                i++;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + a + "'.");
                 System.out.println("Let's try again, " + userName + "!");

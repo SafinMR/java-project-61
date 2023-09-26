@@ -24,31 +24,24 @@ public class App {
         choice = (char) System.in.read();
         System.out.println("Your choice: " + choice + "\n");
 
-
         switch (choice) {
-            case '1' -> Engine.greeting();
+            case '1' -> Cli.greeting();
             case '2' -> {
-                Engine.greeting();
                 Even.playEven();
             }
             case '3' -> {
-                Engine.greeting();
                 Calc.playCalc();
             }
             case '4' -> {
-                Engine.greeting();
                 GCD.playGCD();
             }
             case '5' -> {
-                Engine.greeting();
                 Progression.playProgression();
             }
             case '6' -> {
-                Engine.greeting();
                 Prime.playPrime();
             }
             default -> {
-
             }
         }
     }

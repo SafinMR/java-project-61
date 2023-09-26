@@ -4,39 +4,49 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Progression {
-    static String getExpression(String[] progression) {
+    private static final int MIN = 5;
+    private static final int MAX = 5;
+    private static final int BOUND_1 = 100;
+    private static final int BOUND_2 = 20;
+
+    public static void playProgression() {
+        String rule = "What number is missing in the progression?";
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+
+        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+            String[] progression = getProgression();
+
+            int bound = progression.length - 1;
+            int missNum = Util.getRandomNum(bound);
+            int j = 0;
+
+            String temp = progression[missNum];
+            progression[missNum] = "..";
+            examplesAndAnswers[i][j] = getString(progression);
+            j++;
+            examplesAndAnswers[i][j] = temp;
+        }
+        Engine.play(rule, examplesAndAnswers);
+    }
+
+    private static String[] getProgression() {
+        int length = Util.getRandomNum(MIN) + MAX;
+        int firstNum = Util.getRandomNum(BOUND_1);
+        int diff = Util.getRandomNum(BOUND_2);
+        String[] progression = new String[length];
+
+        for (int i = 0; i < length; i++) {
+            progression[i] = String.valueOf(firstNum + i * diff);
+        }
+        return progression;
+    }
+
+    private static String getString(String[] progression) {
         StringBuilder array = new StringBuilder();
+
         for (String s : progression) {
             array.append(s).append(" ");
         }
         return String.valueOf(array);
-    }
-
-    public static void playProgression() {
-        String rule = "What number is missing in the progression?";
-        final int questionNumber = 3;
-        final int min = 5;
-        final int max = 5;
-        final int bound1 = 100;
-        final int bound2 = 20;
-        String[] expression = new String[questionNumber];
-        String[] correctAnswer = new String[questionNumber];
-        for (int i = 0; i < questionNumber; i++) {
-            int length = Util.getRandomNum(min) + max;
-            int firstNum = Util.getRandomNum(bound1);
-            int diff = Util.getRandomNum(bound2);
-            String[] progression = new String[length];
-
-            for (int j = 0; j < length; j++) {
-                progression[j] = String.valueOf(firstNum + j * diff);
-            }
-
-            int bound = length - 1;
-            int missNum = Util.getRandomNum(bound);
-            correctAnswer[i] = progression[missNum];
-            progression[missNum] = "..";
-            expression[i] = getExpression(progression);
-        }
-        Engine.play(rule, expression, correctAnswer);
     }
 }

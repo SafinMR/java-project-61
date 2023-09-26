@@ -4,23 +4,24 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Even {
+    private static final int BOUND = 100;
+
     public static void playEven() {
         String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        final int questionNumber = 3;
-        final int bound = 100;
-        String[] randomNum = new String[questionNumber];
-        String[] correctAnswer = new String[questionNumber];
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
 
-
-        for (int i = 0; i < questionNumber; i++) {
-            randomNum[i] = String.valueOf(Util.getRandomNum(bound));
-            boolean check = Integer.parseInt(randomNum[i]) % 2 == 0;
-            if (check) {
-                correctAnswer[i] = "yes";
-            } else {
-                correctAnswer[i] = "no";
-            }
+        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+            int j = 0;
+            examplesAndAnswers[i][j] = String.valueOf(Util.getRandomNum(BOUND));
+            String temp = checking(Integer.parseInt(examplesAndAnswers[i][j])) ? "yes" : "no";
+            j++;
+            examplesAndAnswers[i][j] = temp;
         }
-        Engine.play(rule, randomNum, correctAnswer);
+        Engine.play(rule, examplesAndAnswers);
     }
+
+    private static boolean checking(int num) {
+        return num % 2 == 0;
+    }
+
 }

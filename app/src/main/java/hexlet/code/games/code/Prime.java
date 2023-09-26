@@ -4,7 +4,24 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Prime {
-    static boolean isPrime(int number) {
+    private static final int BOUND = 100;
+
+    public static void playPrime() {
+        String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
+
+        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+            int j = 0;
+
+            examplesAndAnswers[i][j] = String.valueOf(Util.getRandomNum(BOUND));
+            String temp = isPrime(Integer.parseInt(examplesAndAnswers[i][j])) ? "yes" : "no";
+            j++;
+            examplesAndAnswers[i][j] = temp;
+        }
+        Engine.play(rule, examplesAndAnswers);
+    }
+
+    private static boolean isPrime(int number) {
         if (number < 2) {
             return false;
         }
@@ -14,26 +31,5 @@ public class Prime {
             }
         }
         return true;
-    }
-
-    public static void playPrime() {
-        String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final int questionNumber = 3;
-        final int bound = 100;
-
-        String[] randomNum = new String[questionNumber];
-        String[] correctAnswer = new String[questionNumber];
-
-        for (int i = 0; i < questionNumber; i++) {
-            randomNum[i] = String.valueOf(Util.getRandomNum(bound));
-
-            boolean check = isPrime(Integer.parseInt(randomNum[i]));
-            if (check) {
-                correctAnswer[i] = "yes";
-            } else {
-                correctAnswer[i] = "no";
-            }
-        }
-        Engine.play(rule, randomNum, correctAnswer);
     }
 }

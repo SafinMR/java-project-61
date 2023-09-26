@@ -4,40 +4,38 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Calc {
-    static int solution(int randomSign, int num1, int num2) {
-
-        int a = 0;
-
-        if (randomSign == 0) {
-            a = num1 + num2;
-        }
-        if (randomSign == 1) {
-            a = num1 - num2;
-        }
-        if (randomSign == 2) {
-            a = num1 * num2;
-        }
-        return a;
-    }
+    private static final int BOUND_1 = 100;
+    private static final int BOUND_2 = 10;
+    private static final int SIGN_NUM = 3;
 
     public static void playCalc() {
         String rule = "What is the result of the expression?";
-        final int questionNumber = 3;
-        final int bound1 = 100;
-        final int bound2 = 10;
-        final int signNum = 3;
         String[] sign = {"+", "-", "*"};
+        String[][] examplesAndAnswers = new String[Engine.QUESTION_NUMBER][Engine.PAIR_NUM];
 
-        String[] correctAnswer = new String[questionNumber];
-        String[] expression = new String[questionNumber];
-        for (int i = 0; i < questionNumber; i++) {
-            int randomNum1 = Util.getRandomNum(bound1);
-            int randomNum2 = Util.getRandomNum(bound2);
-            int randomSign = Util.getRandomNum(signNum);
+        for (int i = 0; i < Engine.QUESTION_NUMBER; i++) {
+            int randomNum1 = Util.getRandomNum(BOUND_1);
+            int randomNum2 = Util.getRandomNum(BOUND_2);
+            int randomSign = Util.getRandomNum(SIGN_NUM);
+            int j = 0;
 
-            correctAnswer[i] = String.valueOf(solution(randomSign, randomNum1, randomNum2));
-            expression[i] = randomNum1 + " " + sign[randomSign] + " " + randomNum2;
+            examplesAndAnswers[i][j] = randomNum1 + " " + sign[randomSign] + " " + randomNum2;
+            j++;
+            examplesAndAnswers[i][j] = String.valueOf(getSolution(sign[randomSign], randomNum1, randomNum2));
         }
-        Engine.play(rule, expression, correctAnswer);
+        Engine.play(rule, examplesAndAnswers);
+    }
+
+    private static int getSolution(String sign, int num1, int num2) {
+        int a = 0;
+
+        switch (sign) {
+            case "+" -> a = num1 + num2;
+            case "-" -> a = num1 - num2;
+            case "*" -> a = num1 * num2;
+            default -> {
+            }
+        }
+        return a;
     }
 }
