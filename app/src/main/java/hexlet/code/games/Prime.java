@@ -11,12 +11,8 @@ public class Prime {
         String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
         for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
-            int j = 0;
-
-            examplesAndAnswers[i][j] = String.valueOf(Util.getRandomNum(BOUND));
-            String temp = isPrime(Integer.parseInt(examplesAndAnswers[i][j])) ? "yes" : "no";
-            j++;
-            examplesAndAnswers[i][j] = temp;
+            examplesAndAnswers[i][0] = String.valueOf(Util.getRandomNum(BOUND));
+            examplesAndAnswers[i][1] = isPrime(Integer.parseInt(examplesAndAnswers[i][0])) ? "yes" : "no";
         }
         Engine.play(rule, examplesAndAnswers);
     }

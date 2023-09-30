@@ -14,10 +14,8 @@ public class GCD {
         for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
             int randomNum1 = Util.getRandomNum(BOUND_1);
             int randomNum2 = Util.getRandomNum(BOUND_2);
-            int j = 0;
-            examplesAndAnswers[i][j] = randomNum1 + " " + randomNum2;
-            j++;
-            examplesAndAnswers[i][j] = String.valueOf(getGCD(randomNum1, randomNum2));
+            examplesAndAnswers[i][1] = randomNum1 + " " + randomNum2;
+            examplesAndAnswers[i][0] = String.valueOf(getGCD(randomNum1, randomNum2));
         }
         Engine.play(rule, examplesAndAnswers);
     }

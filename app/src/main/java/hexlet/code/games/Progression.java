@@ -18,13 +18,11 @@ public class Progression {
 
             int bound = progression.length - 1;
             int missNum = Util.getRandomNum(bound);
-            int j = 0;
 
             String temp = progression[missNum];
             progression[missNum] = "..";
-            examplesAndAnswers[i][j] = getString(progression);
-            j++;
-            examplesAndAnswers[i][j] = temp;
+            examplesAndAnswers[i][0] = getString(progression);
+            examplesAndAnswers[i][1] = temp;
         }
         Engine.play(rule, examplesAndAnswers);
     }
