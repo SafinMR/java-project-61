@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.code.Calc;
-import hexlet.code.games.code.Even;
-import hexlet.code.games.code.GCD;
-import hexlet.code.games.code.Progression;
-import hexlet.code.games.code.Prime;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.io.IOException;
 

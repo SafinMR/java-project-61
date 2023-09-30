@@ -1,4 +1,4 @@
-package hexlet.code.games.code;
+package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Util;
@@ -21,12 +21,12 @@ public class Calc {
 
             examplesAndAnswers[i][j] = randomNum1 + " " + sign[randomSign] + " " + randomNum2;
             j++;
-            examplesAndAnswers[i][j] = String.valueOf(getSolution(sign[randomSign], randomNum1, randomNum2));
+            examplesAndAnswers[i][j] = String.valueOf(calculate(sign[randomSign], randomNum1, randomNum2));
         }
         Engine.play(rule, examplesAndAnswers);
     }
 
-    private static int getSolution(String sign, int num1, int num2) {
+    private static int calculate(String sign, int num1, int num2) {
         int a = 0;
 
         switch (sign) {
@@ -40,6 +40,7 @@ public class Calc {
                 a = num1 * num2;
             }
             default -> {
+                System.out.println("Something wrong!");
             }
         }
         return a;
