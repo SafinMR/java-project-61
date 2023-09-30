@@ -8,13 +8,18 @@ public class Progression {
     private static final int MAX = 5;
     private static final int BOUND_1 = 100;
     private static final int BOUND_2 = 20;
+    private static final String RULE = "What number is missing in the progression?";
+
 
     public static void playProgression() {
-        String rule = "What number is missing in the progression?";
         String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
         for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
-            String[] progression = getProgression();
+            int length = Util.getRandomNum(MIN) + MAX;
+            int firstNum = Util.getRandomNum(BOUND_1);
+            int diff = Util.getRandomNum(BOUND_2);
+
+            String[] progression = getProgression(length, firstNum, diff);
 
             int bound = progression.length - 1;
             int missNum = Util.getRandomNum(bound);
@@ -24,13 +29,10 @@ public class Progression {
             examplesAndAnswers[i][0] = getString(progression);
             examplesAndAnswers[i][1] = temp;
         }
-        Engine.play(rule, examplesAndAnswers);
+        Engine.play(RULE, examplesAndAnswers);
     }
 
-    private static String[] getProgression() {
-        int length = Util.getRandomNum(MIN) + MAX;
-        int firstNum = Util.getRandomNum(BOUND_1);
-        int diff = Util.getRandomNum(BOUND_2);
+    private static String[] getProgression(int length, int firstNum, int diff) {
         String[] progression = new String[length];
 
         for (int i = 0; i < length; i++) {

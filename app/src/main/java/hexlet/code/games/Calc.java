@@ -7,9 +7,10 @@ public class Calc {
     private static final int BOUND_1 = 100;
     private static final int BOUND_2 = 10;
     private static final int SIGN_NUM = 3;
+    private static final String RULE = "What is the result of the expression?";
+
 
     public static void playCalc() {
-        String rule = "What is the result of the expression?";
         String[] sign = {"+", "-", "*"};
         String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
@@ -21,7 +22,7 @@ public class Calc {
             examplesAndAnswers[i][0] = randomNum1 + " " + sign[randomSign] + " " + randomNum2;
             examplesAndAnswers[i][1] = String.valueOf(calculate(sign[randomSign], randomNum1, randomNum2));
         }
-        Engine.play(rule, examplesAndAnswers);
+        Engine.play(RULE, examplesAndAnswers);
     }
 
     private static int calculate(String sign, int num1, int num2) {

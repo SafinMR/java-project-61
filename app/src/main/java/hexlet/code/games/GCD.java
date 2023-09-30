@@ -6,9 +6,10 @@ import hexlet.code.Util;
 public class GCD {
     private static final int BOUND_1 = 100;
     private static final int BOUND_2 = 10;
+    private static final String RULE = "Find the greatest common divisor of given numbers.";
+
 
     public static void playGCD() {
-        String rule = "Find the greatest common divisor of given numbers.";
         String[][] examplesAndAnswers = new String[Engine.QUESTION_COUNT][Engine.COUPLES_COUNT];
 
         for (int i = 0; i < Engine.QUESTION_COUNT; i++) {
@@ -17,7 +18,7 @@ public class GCD {
             examplesAndAnswers[i][0] = randomNum1 + " " + randomNum2;
             examplesAndAnswers[i][1] = String.valueOf(getGCD(randomNum1, randomNum2));
         }
-        Engine.play(rule, examplesAndAnswers);
+        Engine.play(RULE, examplesAndAnswers);
     }
 
     private static int getGCD(int num1, int num2) {
